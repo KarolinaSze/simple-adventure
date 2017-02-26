@@ -1,0 +1,453 @@
+@import url("https://fonts.googleapis.com/css?family=Roboto")
+@import url("https://fonts.googleapis.com/css?family=Oswald")
+
+@mixin box-sizing($box-model) 
+	box-sizing: $box-model
+*
+	@include box-sizing(border-box)
+
+$col-s: 12	
+$col: 12
+$fonts: "Roboto", Arial, sans-serif
+$fonts2: "Oswald", sans-serif
+$purple: #2d112a
+$orange: #fc341d
+$lightorange: #fd703a
+$white: #FFF
+$burgundy: #8b002c
+$margin: 5px
+
+=fonts($size, $weight, $family)
+	font-size: $size
+	font-weight: $weight
+	font-family: $family
+    
+body 
+	font-family: $fonts
+	text-align: center
+
+.container 
+	width: 100%
+	margin: 0 auto
+
+.row:before,
+.row:after 
+	content: "" 
+	display: table 
+	clear: both
+	
+.header 
+	background: $purple	
+
+.logo 
+	width: 150px
+
+a 
+	height: 50px
+	text-decoration: none
+
+li 	
+	text-decoration: none
+	
+nav 
+	ul 
+		background: $purple
+		list-style-type: none
+		overflow: auto
+		
+.hero 
+	background: url("http://slawekrawicz.home.pl/ftp/pinkrabbit/TAJLANDIA/ART/IMG_6649small.jpg")
+	background-size: cover
+	background-position: center
+	
+.guide 
+	padding: 10px
+	
+.guide  
+	i   
+		text-align: center
+	
+.gallery 
+	background: linear-gradient(-45deg, $purple, #5c002f,$purple)
+	letter-spacing: 4px
+	font-size: 20px
+
+.text 
+	color: $white
+	letter-spacing: 0
+
+.layer 
+	display: none	
+	
+i.fa 
+	color: $lightorange
+	font-size: 40px
+
+.small 
+	color: $purple
+	font-size: 10px
+	margin: $margin
+
+.tour-guide 
+	img 
+		border-radius: 50%
+		width: 70px
+h2 
+	color: $burgundy
+	font-size: 20px
+	margin: $margin*2
+
+.picture4 
+	background: url("http://slawekrawicz.home.pl/ftp/pinkrabbit/TAJLANDIA/ART/IMG_5375_small.jpg")
+	background-size: cover
+	background-position: center	
+
+.logo3 
+	padding-top: 20px
+
+.info 
+	p 
+		font-size: 12px
+
+h3 
+	letter-spacing: 4px
+	font-size: 14px
+	padding-top: 20px
+		
+h4 
+	font-size: 11px
+	color: $white
+	padding: 10px
+
+.big-numbers 
+	color: $purple
+	+fonts(24px, bold, $fonts2)
+		
+.footer2 
+	height: 30px
+	background: $purple
+	font-size: 9px
+	
+@media (min-width: 768px)  
+
+	$i: 1
+	@while $i < $col-s + 1
+		.col-#{$i}
+			width: 100% / $col-s * $i
+		$i: $i + 1
+
+	$i: 1 	
+	@while $i < $col-s 
+		.col-s-offset-#{$i}
+			margin-left: 100% / $col-s * $i			
+		$i: $i + 1
+				
+	[class*="col-"] 
+		min-height: 1px
+		float: left
+	
+	.header 
+		height: 50px
+	
+	.logo 
+		float: left
+		max-width: 800px
+		margin: ($margin*2) $margin
+		cursor: pointer
+	
+	a 	
+		color: $white
+		&:hover 
+			color: $orange
+	
+	li 
+		height: 50px
+		line-height: 50px
+		width: 100px
+	
+	nav  
+		width: 100%
+		top: 0
+		text-align: center
+	
+	nav 
+		ul 
+			float: right
+	
+	nav 
+		ul 
+			li 
+				display: inline-block
+	
+	nav 
+		ul 
+			ul 
+				li 
+					display: block
+	
+	nav 
+		li 
+			ul 
+				display: none
+				position: absolute
+			
+	nav 
+		li
+			&:hover 
+				ul 
+					display: block
+	
+	.hero 
+		width: 100%
+	
+	.slogan 
+		float: left
+		background: rgba(253, 112, 58, 0.3)
+		max-width: 800px
+		padding: 5px
+	
+	.logo2 
+		width: 150px
+	
+	h1 
+		color: $lightorange
+		padding-top: 25px
+	
+	p 
+		color: $orange
+	
+	.guide 
+		margin: 20px auto
+	
+	.guide	
+		p
+			text-align: center
+	
+	i.fa-plus-square:hover, 
+	i.fa-plus-square:hover ~ p, 
+	i.fa-suitcase:hover, 
+	i.fa-suitcase:hover ~ p, 
+	i.fa-map-marker:hover, 
+	i.fa-map-marker:hover ~ p 
+		transition: ease-in-out .3s
+		color: $burgundy
+		cursor: pointer
+	
+	.gallery  
+		p 
+			color: $white
+			margin: $margin*2
+		
+	.text 
+		font-size: 12px
+		
+	.photos  
+		img 
+			float: left
+			width: 100%
+	
+	.photos 
+		position: relative
+	
+	.layer	
+		.fa-camera-retro,
+		.fa-link 
+			cursor: pointer
+			display: inline-block
+			font-size: 20px
+			color: rgba(255,255,255, 0.8)
+			position: relative
+			top: 50%
+			transform: translateY(-50%)
+	
+	.layer 
+		background: rgba(253, 112, 58, 0.3)
+		position: absolute
+		width: 100%
+		height: 100%
+		text-align: center
+	
+	.photos
+		&:hover 
+			.layer 
+				display: block
+	
+	.tour-guide 
+		p 
+			color: $burgundy
+	
+	.tour-guide 
+		height: 150px
+		float: left
+	
+	h2 
+		letter-spacing: 4px
+	
+	.logo3 
+		width: 70%
+		background-size: cover
+		margin: 0 $margin	
+
+	.info 
+		p 
+			color: $purple
+			padding: 15px
+			background-size: cover
+		
+	h3 
+		color: $purple
+	
+	.numbers 
+		height: 100px	
+	
+	.big-numbers 
+		padding-top: 30px
+	
+	.footer 
+		height: 120px
+		background: $purple
+		font-size: 9px
+	
+	.footer, .footer2 
+		p
+			color: $white
+			padding: 0 10px
+			margin: 0 ($margin*2)
+			
+@media (max-width: 767px)  
+	
+	$i: 1
+	@while $i < $col-s + 1
+		.col-#{$i}
+			width: 100% / $col-s * $i
+		$i: $i + 1
+	   
+	[class*="col-"] 
+		min-height: 1px
+		display: block
+		text-align: center
+		width: 100%
+		margin: 0 auto
+	
+	.header 
+		width: 100%
+		text-align: center
+	
+	.logo 
+		padding-top: 15px
+		text-align: center
+	
+	a 
+		color: $lightorange
+	
+	li 
+		line-height: 40px
+		padding: 5px
+	
+	nav 
+		ul 
+			float: none
+	
+	nav 
+		ul 
+			li 
+				display: block
+	
+	nav 
+		ul 
+			ul 
+				li 
+					display: none
+	
+	.hero 
+		height: 220px
+	
+	.logo2 
+		height: 220px
+		background: rgba(253, 112, 58, 0.3)
+	
+	h1 
+		display: none
+	
+	.guide  
+		p 
+			color: $orange
+			padding: 3px
+	
+	.guide 
+		margin: $margin auto
+		display: block
+		
+	.gallery 
+		height: 70px
+		padding-top: 5px
+		margin: ($margin*2) 0
+		width: 100%
+	
+	.gallery  
+		p 
+			color: $white
+			margin-top: 4px
+			padding: 4px
+	
+	.text 
+		font-size: 10px
+		padding: 2px
+		
+	.photos  
+		img 
+			text-align: center
+			padding: 10px 0
+			width: 70%
+	
+	.photos 
+		display: block	
+		padding-top: 10px
+
+	.tour-guide 
+		display: block
+		text-align: center
+		padding: 10px
+		color: $burgundy
+	
+	h2 
+		letter-spacing: 2px
+	
+	.picture4 
+		height: 250px
+	
+	.logo3 
+		height: 120px
+		
+	.info 
+		text-align: center
+		
+	.info 
+		p 
+			color: $white
+			padding: 0 5px
+		
+	h3 
+		color: $white
+
+	.numbers 
+		height: 80px	
+		display: inline-block
+		float: left
+	
+	.big-numbers 
+		padding-top: 15px
+	
+	.footer 
+		width: 100%
+		background: $purple
+		font-size: 10px
+		display: block 
+		p
+			color: $white
+			padding: 0 5px
+			
+	.footer2 
+		p
+			padding: 10px
+			color: #FFF
