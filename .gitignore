@@ -1,0 +1,4 @@
+/public/
+/dist/
+*.css
+/node_modules/
